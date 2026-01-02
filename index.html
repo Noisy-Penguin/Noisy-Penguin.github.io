@@ -6,27 +6,25 @@
 
     <style>
         /* ===== Base Page ===== */
-        html, body {
-            height: 100%;
-        }
-
         body {
             background: #000;
             color: #00ff66;
             font-family: "Courier New", Courier, monospace;
+            font-size: 16px;
             margin: 0;
             padding: 20px;
-            line-height: 1.5;
+            line-height: 1.3;
             text-shadow: 0 0 5px rgba(0, 255, 100, 0.6);
         }
 
         /* ===== CRT Container ===== */
         .container {
-            max-width: 800px;
+            width: 800px;
+            height: 600px;
             margin: 0 auto;
             padding: 20px;
-            border-radius: 6px;
             position: relative;
+            border-radius: 20px;
             background: rgba(0, 0, 0, 0.95);
             box-shadow:
                 0 0 20px rgba(0, 255, 100, 0.25),
@@ -44,31 +42,27 @@
                 to bottom,
                 rgba(0, 0, 0, 0) 0px,
                 rgba(0, 0, 0, 0) 2px,
-                rgba(0, 0, 0, 0.15) 3px
+                rgba(0, 0, 0, 0.15) 3px,
+                rgba(0, 0, 0, 0.15) 4px
             );
         }
 
-        /* ===== Flicker Animation ===== */
+        /* ===== Flicker ===== */
         @keyframes flicker {
-            0% { opacity: 0.97; }
-            5% { opacity: 0.9; }
-            10% { opacity: 1; }
-            15% { opacity: 0.85; }
-            20% { opacity: 1; }
+            0%   { opacity: 0.97; }
+            5%   { opacity: 0.9; }
+            10%  { opacity: 1; }
+            15%  { opacity: 0.85; }
+            20%  { opacity: 1; }
             100% { opacity: 0.98; }
         }
 
         /* ===== ASCII Title ===== */
         #ascii-title {
             white-space: pre;
-            font-size: 12px;
-            color: #00ff66;
-        }
-
-        /* ===== Dividers ===== */
-        .divider {
-            border-top: 1px solid rgba(0, 255, 100, 0.4);
-            margin: 12px 0;
+            font-size: 14px;
+            line-height: 1.2;
+            margin: 0;
         }
 
         /* ===== Prompt Layout ===== */
@@ -85,7 +79,7 @@
             margin-left: 10px;
         }
 
-        /* ===== Blinking Cursor ===== */
+        /* ===== Cursor ===== */
         .cursor {
             display: inline-block;
             width: 10px;
@@ -112,18 +106,20 @@
     <div class="container">
 
         <div class="prompt">
-            <span>$</span>
-            <div class="output" id="ascii-title">
-    _   __      _            ____                         _     
-   / | / /___  (_)______  __/ __ \___  ____  ____ ___  __(_)___ 
-  /  |/ / __ \/ / ___/ / / / /_/ / _ \/ __ \/ __ `/ / / / / __ \
- / /|  / /_/ / (__  ) /_/ / ____/  __/ / / / /_/ / /_/ / / / / /
-/_/ |_/\____/_/____/\__, /_/    \___/_/ /_/\__, /\__,_/_/_/ /_/ 
-                   /____/                 /____/                                                  
-            </div>
+            <div class="output" id="ascii-title">▗▖  ▗▖ ▄▄▄  ▄  ▄▄▄ ▄   ▄ ▗▄▄▖ ▗▞▀▚▖▄▄▄▄  █  ▐▌▄ ▄▄▄▄  
+▐▛▚▖▐▌█   █ ▄ ▀▄▄  █   █ ▐▌ ▐▌▐▛▀▀▘█   █ ▀▄▄▞▘▄ █   █ 
+▐▌ ▝▜▌▀▄▄▄▀ █ ▄▄▄▀  ▀▀▀█ ▐▛▀▘ ▝▚▄▄▖█   █      █ █   █ 
+▐▌  ▐▌      █      ▄   █ ▐▌            ▗▄▖    █       
+                    ▀▀▀               ▐▌ ▐▌           
+                                       ▝▀▜▌           
+                                      ▐▙▄▞▘</div>
         </div>
 
-        <div class="divider"></div>
+        <div class="prompt">
+            <div class="output">
+                ---------------------------------------------------------------------------------
+            </div>
+        </div>
 
         <div class="prompt">
             <span>$</span>
@@ -133,30 +129,21 @@
                 A coded message, hidden unseen.<br>
                 The key you seek is who I am,<br>
                 Vigenère's cipher, break the dam:<br>
-                <br>
-                "Gvm lyho vy hwg wial rd yajyzfgovv rwi jultq oib lm rlntam vg."
+                'Gvm lyho vy hwg wial rd yajyzfgovv rwi jultq oib lm rlntam vg'
             </div>
         </div>
-        
-            <div class="divider"></div>
 
         <div class="prompt">
             <span>$</span>
             <div class="output">
-                Did you ever hack "the Gibson"?<br>
+                Did you ever hack 'The Gibson'?
             </div>
         </div>
 
-        <div class="divider"></div>
-
         <div class="prompt">
             <span>$</span>
-            <div class="output">
-                cat index.html<br>
-            </div>
-            <div class="output">
-                <span class="cursor">█</span>
-            </div>
+            <div class="output">cat index.html</div>
+            <div class="output"><span class="cursor">█</span></div>
         </div>
 
     </div>
@@ -165,7 +152,7 @@
     ============================================================================
     VERY SECRET HIDDEN COMMENT SECTION
     oz9cp3yjMJ5aqJyhYaO1paOfMGH4ZxOjLKAmoJScoP5wo20=
-    I sometimes play on my old Nintendo 64, 
+    I sometimes play on my old Nintendo 64,
     but we have to rotate from time to time, so everyone can play.
     ============================================================================
     -->
