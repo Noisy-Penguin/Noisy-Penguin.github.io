@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NoisyPenguin</title>
+
+    <style>
+        /* ===== Base Page ===== */
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background: #000;
+            color: #00ff66;
+            font-family: "Courier New", Courier, monospace;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.5;
+            text-shadow: 0 0 5px rgba(0, 255, 100, 0.6);
+        }
+
+        /* ===== CRT Container ===== */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 6px;
+            position: relative;
+            background: rgba(0, 0, 0, 0.95);
+            box-shadow:
+                0 0 20px rgba(0, 255, 100, 0.25),
+                inset 0 0 30px rgba(0, 255, 100, 0.1);
+            animation: flicker 4s infinite;
+        }
+
+        /* ===== Scanlines ===== */
+        .container::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: repeating-linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0) 0px,
+                rgba(0, 0, 0, 0) 2px,
+                rgba(0, 0, 0, 0.15) 3px
+            );
+        }
+
+        /* ===== Flicker Animation ===== */
+        @keyframes flicker {
+            0% { opacity: 0.97; }
+            5% { opacity: 0.9; }
+            10% { opacity: 1; }
+            15% { opacity: 0.85; }
+            20% { opacity: 1; }
+            100% { opacity: 0.98; }
+        }
+
+        /* ===== ASCII Title ===== */
+        #ascii-title {
+            white-space: pre;
+            font-size: 12px;
+            color: #00ff66;
+        }
+
+        /* ===== Dividers ===== */
+        .divider {
+            border-top: 1px solid rgba(0, 255, 100, 0.4);
+            margin: 12px 0;
+        }
+
+        /* ===== Prompt Layout ===== */
+        .prompt {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .prompt span {
+            margin-right: 10px;
+        }
+
+        .output {
+            margin-left: 10px;
+        }
+
+        /* ===== Blinking Cursor ===== */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            animation: blink 1s steps(1) infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* ===== Links ===== */
+        a {
+            color: #00ff66;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="prompt">
+            <span>$</span>
+            <div class="output" id="ascii-title">
+    _   __      _            ____                         _     
+   / | / /___  (_)______  __/ __ \___  ____  ____ ___  __(_)___ 
+  /  |/ / __ \/ / ___/ / / / /_/ / _ \/ __ \/ __ `/ / / / / __ \
+ / /|  / /_/ / (__  ) /_/ / ____/  __/ / / / /_/ / /_/ / / / / /
+/_/ |_/\____/_/____/\__, /_/    \___/_/ /_/\__, /\__,_/_/_/ /_/ 
+                   /____/                 /____/                                                  
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="prompt">
+            <span>$</span>
+            <div class="output">
+                <strong>Riddle</strong><br>
+                Riddle me this, if you're keen,<br>
+                A coded message, hidden unseen.<br>
+                The key you seek is who I am,<br>
+                Vigenère's cipher, break the dam:<br>
+                <br>
+                "Gvm lyho vy hwg wial rd yajyzfgovv rwi jultq oib lm rlntam vg."
+            </div>
+        </div>
+        
+            <div class="divider"></div>
+
+        <div class="prompt">
+            <span>$</span>
+            <div class="output">
+                Did you ever hack "the Gibson"?<br>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="prompt">
+            <span>$</span>
+            <div class="output">
+                <span class="cursor">█</span>
+            </div>
+        </div>
+
+    </div>
+
+    <!--
+    ============================================================================
+    VERY SECRET HIDDEN COMMENT SECTION
+    oz9cp3yjMJ5aqJyhYaO1paOfMGH4ZxOjLKAmoJScoP5wo20=
+    I sometimes play on my old Nintendo 64, 
+    but we have to rotate from time to time, so everyone can play.
+    ============================================================================
+    -->
+</body>
+</html>
