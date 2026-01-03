@@ -5,10 +5,9 @@
     <title>NoisyPenguin</title>
 
     <style>
-        /* ===== Base Page ===== */
         body {
             background: #000;
-            color: #00ff66;
+            color: #00ff00;
             font-family: "Courier New", Courier, monospace;
             font-size: 16px;
             margin: 0;
@@ -17,7 +16,6 @@
             text-shadow: 0 0 5px rgba(0, 255, 100, 0.6);
         }
 
-        /* ===== CRT Container ===== */
         .container {
             width: 800px;
             min-height: 600px;
@@ -32,7 +30,6 @@
             animation: flicker 4s infinite;
         }
 
-        /* ===== Scanlines ===== */
         .container::before {
             content: "";
             position: absolute;
@@ -47,7 +44,6 @@
             );
         }
 
-        /* ===== Flicker ===== */
         @keyframes flicker {
             0%   { opacity: 0.97; }
             5%   { opacity: 0.9; }
@@ -57,29 +53,15 @@
             100% { opacity: 0.98; }
         }
 
-        /* ===== ASCII Title ===== */
-        #ascii-title {
+        pre {
+            margin: 0 0 14px 0;
             white-space: pre;
-            font-size: 14px;
-            line-height: 1.2;
-            margin: 0;
         }
 
-        /* ===== Prompt Layout ===== */
-        .prompt {
-            display: flex;
-            margin-bottom: 10px;
+        .cmd {
+            font-weight: bold;
         }
 
-        .prompt span {
-            margin-right: 10px;
-        }
-
-        .output {
-            margin-left: 10px;
-        }
-
-        /* ===== Cursor ===== */
         .cursor {
             display: inline-block;
             width: 10px;
@@ -90,9 +72,8 @@
             50% { opacity: 0; }
         }
 
-        /* ===== Links ===== */
         a {
-            color: #00ff66;
+            color: #00ff00;
             text-decoration: none;
         }
 
@@ -103,58 +84,55 @@
 </head>
 
 <body>
-    <div class="container">
+<div class="container">
 
-        <div class="prompt">
-            <div class="output" id="ascii-title">▗▖  ▗▖ ▄▄▄  ▄  ▄▄▄ ▄   ▄ ▗▄▄▖ ▗▞▀▚▖▄▄▄▄  █  ▐▌▄ ▄▄▄▄  
+<pre id="ascii-title">
+▗▖  ▗▖ ▄▄▄  ▄  ▄▄▄ ▄   ▄ ▗▄▄▖ ▗▞▀▚▖▄▄▄▄  █  ▐▌▄ ▄▄▄▄  
 ▐▛▚▖▐▌█   █ ▄ ▀▄▄  █   █ ▐▌ ▐▌▐▛▀▀▘█   █ ▀▄▄▞▘▄ █   █ 
 ▐▌ ▝▜▌▀▄▄▄▀ █ ▄▄▄▀  ▀▀▀█ ▐▛▀▘ ▝▚▄▄▖█   █      █ █   █ 
 ▐▌  ▐▌      █      ▄   █ ▐▌            ▗▄▖    █       
                     ▀▀▀               ▐▌ ▐▌           
                                        ▝▀▜▌           
-                                      ▐▙▄▞▘</div>
-        </div>
+                                      ▐▙▄▞▘
+</pre>
 
-        <div class="prompt">
-            <div class="output">
-                ---------------------------------------------------------------------------------
-            </div>
-        </div>
+<pre>---------------------------------------------------------------------------------</pre>
 
-        <div class="prompt">
-            <span>$</span>
-            <div class="output">
-                <strong>cat /Home/noisypenguin/riddle.txt</strong><br><br>
-                Riddle me this, if you're keen,<br>
-                A coded message, hidden unseen.<br>
-                The key you seek is who I am,<br>
-                Vigenère's cipher, break the dam:<br><br>
-                'Gvm lyho vy hwg wial rd yajyzfgovv rwi jultq oib lm rlntam vg'<br><br>
-            </div>
-        </div>
+<pre>
+noisypenguin@github:~$ <span class="cmd">cat /home/noisypenguin/riddle.txt</span>
+Riddle me this, if you're keen,
+A coded message, hidden unseen.
+The key you seek is who I am,
+Vigenère's cipher, break the dam:
+Gvm lyho vy hwg wial rd yajyzfgovv rwi jultq oib lm rlntam vg
+</pre>
 
-        <div class="prompt">
-            <span>$</span>
-            <div class="output">
-                Did you ever 'hack the Gibson'? Tell me!
-            </div>
-        </div>
+<pre>
+noisypenguin@github:~$ <span class="cmd">cat /home/noisypenguin/about.txt</span>
+python / security / networks
+curiosity > credentials
+still a chobo figuring things out
+learning by breaking things (responsibly*)<!-- *trying -->
+</pre>
 
-        <div class="prompt">
-            <span>$</span>
-            <div class="output">cat index.html</div>
-            <div class="output"><span class="cursor">█</span></div>
-        </div>
+<pre>
+noisypenguin@github:~$ <span class="cmd">echo $question</span>
+did you ever hack the gibson? write me!
+</pre>
 
-    </div>
+<pre>
+noisypenguin@github:~$ cat index.html<span class="cursor">█</span>
+</pre>
 
-    <!--
-    ============================================================================
-    VERY SECRET HIDDEN COMMENT SECTION
-    oz9cp3yjMJ5aqJyhYaO1paOfMGH4ZxOjLKAmoJScoP5wo20=
-    I sometimes play on my old Nintendo 64,
-    but we have to rotate from time to time, so everyone can play.
-    ============================================================================
-    -->
+</div>
+
+<!--
+============================================================================
+VERY SECRET HIDDEN COMMENT SECTION
+oz9cp3yjMJ5aqJyhYaO1paOfMGH4ZxOjLKAmoJScoP5wo20=
+I sometimes play on my old Nintendo 64,
+but we have to rotate from time to time, so everyone can play.
+============================================================================
+-->
 </body>
 </html>
